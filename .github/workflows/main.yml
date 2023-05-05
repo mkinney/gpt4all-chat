@@ -41,7 +41,7 @@ jobs:
       - name: Clone repo
         uses: actions/checkout@v2.3.4
 	with:
-	  recursive: true
+	  submodules: 'recursive'
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2.14.0
