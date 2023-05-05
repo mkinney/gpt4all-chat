@@ -40,8 +40,6 @@ jobs:
     steps:
       - name: Clone repo
         uses: actions/checkout@v2.3.4
-	with:
-	  submodules: recursive
 
       - name: Install Qt
         uses: jurplel/install-qt-action@v2.14.0
@@ -50,6 +48,7 @@ jobs:
 
       - name: Build gpt4all-chat
         run: |
+          git submodule update --init --recursive
           mkdir build
           cd build
           cmake .. ${{ matrix.additional_arguments }}
